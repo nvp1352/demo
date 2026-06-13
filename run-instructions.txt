@@ -1,0 +1,18 @@
+1. Import database/fashion_shop.sql vào MySQL.
+
+2. Chạy backend:
+cd backend
+npm install
+npm run dev
+
+3. Chạy frontend:
+cd frontend
+npm install
+npm run dev
+
+4. Mở:
+http://localhost:5173
+
+Admin:
+admin@gmail.com
+123456
