@@ -1,73 +1,25 @@
-# Fashion Shop Full
+# Sudes Sport PHP/MySQL Shop
 
-Website bán quần áo thời trang gồm:
+Website thời trang thể thao phong cách tối giản: trang chủ, danh sách sản phẩm, lọc giá, chi tiết sản phẩm, giỏ hàng, thanh toán, admin xem sản phẩm/đơn hàng.
 
-- Frontend React + Vite
-- Backend Node.js + Express
-- Database MySQL
-- Đăng nhập admin
-- Quản lý sản phẩm
-- Trang chủ sản phẩm
-- Giỏ hàng
-- Đặt hàng
-- Trang quản lý đơn hàng
+## Cài trên XAMPP/Laragon/Wamp
+1. Copy thư mục `sudes_pili_style_shop` vào `htdocs` hoặc `www`.
+2. Mở phpMyAdmin, import file `database.sql`.
+3. Sửa `config/database.php` nếu tài khoản MySQL không phải `root` và mật khẩu rỗng.
+4. Truy cập: `http://localhost/sudes_pili_style_shop`.
+5. Admin: `http://localhost/sudes_pili_style_shop/admin` — user `admin`, pass `admin123`.
 
-## Cách chạy database
-
-Mở MySQL và chạy file:
-
+## Cài trên Ubuntu Apache
 ```bash
-database/fashion_shop.sql
+sudo apt update
+sudo apt install apache2 mysql-server php php-mysql unzip -y
+sudo unzip sudes_pili_style_shop.zip -d /var/www/html/
+sudo mysql < /var/www/html/sudes_pili_style_shop/database.sql
+sudo chown -R www-data:www-data /var/www/html/sudes_pili_style_shop
+sudo systemctl restart apache2
 ```
+Mở: `http://IP_SERVER/sudes_pili_style_shop`
 
-## Chạy backend
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-Backend chạy tại:
-
-```txt
-http://localhost:3000
-```
-
-## Chạy frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend chạy tại:
-
-```txt
-http://localhost:5173
-```
-
-## Tài khoản admin mẫu
-
-```txt
-Email: admin@gmail.com
-Password: 123456
-```
-
-## Cấu hình MySQL
-
-Sửa file:
-
-```txt
-backend/.env
-```
-
-```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=
-DB_NAME=fashion_shop
-JWT_SECRET=fashion_secret_2026
-PORT=3000
-```
+## Database
+Database: `sudes_shop`
+Tables: `categories`, `products`, `orders`, `order_items`, `admins`.

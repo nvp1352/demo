@@ -1,0 +1,4 @@
+<?php if(session_status()===PHP_SESSION_NONE) session_start(); require_once __DIR__.'/config/database.php'; $cats=$pdo->query("SELECT * FROM categories WHERE parent_id IS NULL ORDER BY sort_order")->fetchAll(); $cartCount=array_sum(array_column($_SESSION['cart'] ?? [], 'qty')); ?>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sudes Sport</title><link rel="stylesheet" href="assets/css/style.css"></head><body>
+<div class="topbar">Freeship đơn từ 499K • Đổi trả 7 ngày • Hotline 0900 123 456</div>
+<header class="header"><a class="logo" href="index.php">SUDES<span>SPORT</span></a><nav><?php foreach($cats as $c): ?><a href="products.php?cat=<?=htmlspecialchars($c['slug'])?>"><?=htmlspecialchars($c['name'])?></a><?php endforeach; ?></nav><div class="icons"><a href="products.php">Search</a><a href="cart.php">Giỏ hàng (<?=$cartCount?>)</a><a href="admin/index.php">Admin</a></div></header>
