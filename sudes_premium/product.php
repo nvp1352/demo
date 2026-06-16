@@ -1,0 +1,5 @@
+<?php include 'header.php';
+$stmt=$pdo->prepare('SELECT p.*, c.name category_name FROM products p LEFT JOIN categories c ON p.category_id=c.id WHERE p.slug=?');$stmt->execute([$_GET['slug'] ?? '']);$p=$stmt->fetch(); if(!$p) die('Không tìm thấy sản phẩm');
+?>
+<main class="container"><div class="detail"><div class="detail-img"><img src="<?=$p['image']?>" alt="<?=$p['name']?>"></div><div><p class="muted"><?=$p['category_name']?></p><h1><?=$p['name']?></h1><div class="price"><span class="sale"><?=money(product_price($p))?></span><?php if($p['sale_price']): ?><span class="old"><?=money($p['regular_price'])?></span><?php endif; ?></div><p><?=$p['description']?></p><p><b>Chất liệu:</b> <?=$p['material']?></p><p><b>Màu:</b> <?=$p['color']?></p><p><b>Size:</b> <?=$p['size']?></p><form method="post" action="cart.php?action=add"><input type="hidden" name="id" value="<?=$p['id']?>"><input class="qty" type="number" name="qty" value="1" min="1"><button class="btn">Thêm vào giỏ hàng</button></form></div></div></main>
+<?php include 'footer.php'; ?>
