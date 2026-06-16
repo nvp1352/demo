@@ -1,0 +1,1 @@
+<?php include 'header.php'; ?><main class="container"><div class="section-title"><h2>Đặt hàng thành công</h2><p>Mã đơn hàng của bạn: #<?=htmlspecialchars($_GET['id'] ?? '')?></p><a class="btn" href="index.php">Về trang chủ</a></div></main><?php include 'footer.php'; ?>
