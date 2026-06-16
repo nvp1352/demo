@@ -1,1 +1,0 @@
-<footer class="footer"><div><h3>SUDES SPORT</h3><p>Thời trang thể thao tối giản, cao cấp, dành cho nhịp sống năng động.</p></div><div><b>Danh mục</b><a>BST Mới</a><a>Nam</a><a>Nữ</a><a>Phụ kiện</a></div><div><b>Hỗ trợ</b><a>Chính sách đổi trả</a><a>Hướng dẫn chọn size</a><a>Liên hệ</a></div></footer><script src="assets/js/main.js"></script></body></html>

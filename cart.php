@@ -1,6 +1,0 @@
-<?php require 'header.php';
-if(!isset($_SESSION['cart'])) $_SESSION['cart']=[];
-if(($_GET['action']??'')==='add'){ $id=(int)$_GET['id']; $_SESSION['cart'][$id]['qty']=($_SESSION['cart'][$id]['qty']??0)+1; header('Location: cart.php'); exit; }
-if(($_GET['action']??'')==='remove'){ unset($_SESSION['cart'][(int)$_GET['id']]); header('Location: cart.php'); exit; }
-$items=[]; $total=0; if($_SESSION['cart']){ $ids=array_keys($_SESSION['cart']); $in=str_repeat('?,',count($ids)-1).'?'; $st=$pdo->prepare("SELECT * FROM products WHERE id IN ($in)"); $st->execute($ids); foreach($st->fetchAll() as $p){ $p['qty']=$_SESSION['cart'][$p['id']]['qty']; $p['price']=current_price($p); $p['line']=$p['price']*$p['qty']; $total+=$p['line']; $items[]=$p; }} ?>
-<section class="section"><h1>Giỏ hàng</h1><?php if(!$items): ?><p>Giỏ hàng đang trống.</p><?php else: ?><table><tr><th>Sản phẩm</th><th>SL</th><th>Giá</th><th>Tổng</th><th></th></tr><?php foreach($items as $p): ?><tr><td><?=$p['name']?></td><td><?=$p['qty']?></td><td><?=money_vnd($p['price'])?></td><td><?=money_vnd($p['line'])?></td><td><a href="cart.php?action=remove&id=<?=$p['id']?>">Xóa</a></td></tr><?php endforeach; ?></table><h2>Tổng: <?=money_vnd($total)?></h2><a class="btn" href="checkout.php">Thanh toán</a><?php endif; ?></section><?php require 'footer.php'; ?>

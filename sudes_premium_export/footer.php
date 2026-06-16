@@ -1,1 +1,0 @@
-<footer class="footer"><div><h2>SUDES</h2><p>Thời trang tối giản, cao cấp, lấy cảm hứng từ các bộ sưu tập hiện đại dành cho nam và nữ.</p></div><div><h3>Hỗ trợ</h3><p>Chính sách đổi trả<br>Hướng dẫn chọn size<br>Liên hệ</p></div><div><h3>Liên hệ</h3><p>Email: sudes@example.com<br>Hotline: 0900 000 000</p></div></footer><script src="assets/js/app.js"></script></body></html>

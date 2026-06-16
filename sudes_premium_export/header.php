@@ -1,4 +1,0 @@
-<?php if(session_status()===PHP_SESSION_NONE) session_start(); require_once __DIR__.'/config/database.php'; require_once __DIR__.'/config/helpers.php'; $cats=$pdo->query('SELECT * FROM categories ORDER BY id')->fetchAll(); $cartCount=array_sum($_SESSION['cart']??[]); ?>
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUDES Premium Fashion</title><link rel="stylesheet" href="assets/css/style.css"></head><body>
-<div class="topbar">Miễn phí vận chuyển cho đơn từ 1.500.000₫ | New Arrivals mỗi tuần</div>
-<nav class="nav"><a class="logo" href="index.php">SUDES</a><div class="menu"><a href="products.php">Tất cả</a><?php foreach($cats as $c): ?><a class="<?=active($c['slug'])?>" href="products.php?category=<?=$c['slug']?>"><?=$c['name']?></a><?php endforeach; ?></div><div class="icons"><a href="cart.php">Giỏ hàng (<?=$cartCount?>)</a><a href="admin/login.php">Admin</a></div></nav>
